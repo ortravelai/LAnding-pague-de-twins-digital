@@ -50,7 +50,12 @@ const ChatWidget: React.FC = () => {
   useEffect(() => {
     const initChat = async () => {
       try {
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+        if (!apiKey) {
+          console.error("VITE_GEMINI_API_KEY no está configurada");
+          return;
+        }
+        const ai = new GoogleGenAI({ apiKey });
         const chat = ai.chats.create({
           model: 'gemini-2.5-flash',
           config: {
