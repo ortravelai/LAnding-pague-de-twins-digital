@@ -19,8 +19,8 @@ const Section: React.FC<SectionProps> = ({ children, className = '', id = '' }) 
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '50px',
+        threshold: 0,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 
@@ -28,18 +28,22 @@ const Section: React.FC<SectionProps> = ({ children, className = '', id = '' }) 
       observer.observe(ref.current);
     }
 
+    // Fallback: make visible after 400ms regardless of observer
+    const fallback = setTimeout(() => setIsVisible(true), 400);
+
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
       }
+      clearTimeout(fallback);
     };
   }, []);
 
   return (
-    <section 
-      id={id} 
-      ref={ref} 
-      className={`py-20 md:py-32 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${className}`}
+    <section
+      id={id}
+      ref={ref}
+      className={`py-20 md:py-32 transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-6'} ${className}`}
     >
       {children}
     </section>
