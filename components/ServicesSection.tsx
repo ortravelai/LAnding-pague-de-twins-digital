@@ -154,7 +154,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenBooking }) => {
         <div className="border-t border-white/[0.06] mb-20" />
 
         {/* ── Línea 2: Master Classes ──────────────────── */}
-        <div>
+        <div id="master-classes">
           <div className="text-center mb-12">
             <span className="inline-block mb-3 px-3 py-1 rounded-full bg-[#7c3aed]/15 border border-[#7c3aed]/40 text-violet-300 text-xs font-bold uppercase tracking-widest animate-pulse">
               APRENDE IA CON LA MISMA IA

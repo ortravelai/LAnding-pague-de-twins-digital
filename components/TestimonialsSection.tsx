@@ -28,7 +28,7 @@ const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <Section id="testimonials" className="bg-dark border-b border-white/5 relative overflow-hidden">
+    <Section id="testimonios" className="bg-dark border-b border-white/5 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[10%] right-[5%] w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>

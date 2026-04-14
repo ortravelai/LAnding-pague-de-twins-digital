@@ -7,7 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-grid bg-[#0d1117]">
+    <section id="inicio" className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-grid bg-[#0d1117]">
 
       {/* Radial glows */}
       <div className="absolute inset-0 pointer-events-none">
