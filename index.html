@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twins Digital.IA | Automatización de Negocios con IA</title>
+    <meta name="description" content="Automatiza el 80% de tu operación con IA en 7 días. Empleados digitales, CRM inteligente y workflows 24/7. Implementación Done-For-You." />
+    <meta property="og:title" content="Twins Digital.IA | Automatización de Negocios" />
+    <meta property="og:description" content="Duplica tus ingresos automatizando con IA. Implementación en 7 días." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans:    ['Inter', 'sans-serif'],
+              display: ['DM Sans', 'sans-serif'],
+              mono:    ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              primary:  '#8b5cf6',
+              secondary:'#22d3ee',
+              accent:   '#10b981',
+              dark:     '#09090b',
+              surface:  '#111113',
+            },
+            animation: {
+              'fade-up':    'fadeUp 0.65s cubic-bezier(0.16,1,0.3,1) forwards',
+              'fade-in':    'fadeIn 0.5s ease forwards',
+              'float':      'float 5s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4,0,0.6,1) infinite',
+            },
+            keyframes: {
+              fadeUp: {
+                from: { opacity: '0', transform: 'translateY(18px)' },
+                to:   { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+              float: {
+                '0%,100%': { transform: 'translateY(0)' },
+                '50%':     { transform: 'translateY(-8px)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* ── Reset & Base ─────────────────────────── */
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        background-color: #09090b;
+        color: #fafafa;
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      /* ── Grid dot pattern ─────────────────────── */
+      .bg-grid {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 52px 52px;
+      }
+
+      /* ── Radial glow spot ─────────────────────── */
+      .glow-spot {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+      }
+
+      /* ── Typography helpers ───────────────────── */
+      .text-gradient {
+        background: linear-gradient(135deg, #fff 40%, rgba(255,255,255,0.45));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .text-gradient-purple {
+        background: linear-gradient(130deg, #c4b5fd, #8b5cf6 55%, #6d28d9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .animate-shine {
+        background: linear-gradient(110deg, #c4b5fd 0%, #8b5cf6 35%, #22d3ee 65%, #c4b5fd 100%);
+        background-size: 250% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shine 5s linear infinite;
+      }
+      @keyframes shine { to { background-position: 250% center; } }
+
+      /* ── Fade in up ───────────────────────────── */
+      .animate-fade-in-up {
+        animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+      }
+      @keyframes fadeUp {
+        from { opacity:0; transform:translateY(18px); }
+        to   { opacity:1; transform:translateY(0); }
+      }
+
+      /* ── Cards ────────────────────────────────── */
+      .glass-card {
+        background: rgba(255,255,255,0.025);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255,255,255,0.07);
+      }
+      .surface-card {
+        background: #111113;
+        border: 1px solid rgba(255,255,255,0.07);
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+      .surface-card:hover {
+        border-color: rgba(139,92,246,0.28);
+        background: #18181b;
+      }
+
+      /* ── Pill badge ───────────────────────────── */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 14px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid rgba(139,92,246,0.25);
+        background: rgba(139,92,246,0.08);
+        color: #c4b5fd;
+      }
+
+      /* ── Buttons ──────────────────────────────── */
+      .btn-primary {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 11px 22px; border-radius: 10px;
+        font-weight: 600; font-size: 14px;
+        background: #8b5cf6; color: #fff;
+        border: 1px solid rgba(139,92,246,0.6);
+        transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+        cursor: pointer; text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: #7c3aed; transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(139,92,246,0.35);
+      }
+      .btn-ghost {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 11px 22px; border-radius: 10px;
+        font-weight: 500; font-size: 14px;
+        background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.75);
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: background 0.15s, border-color 0.15s, transform 0.15s;
+        cursor: pointer; text-decoration: none;
+      }
+      .btn-ghost:hover {
+        background: rgba(255,255,255,0.07);
+        border-color: rgba(139,92,246,0.35);
+        transform: translateY(-1px);
+      }
+      .btn-green {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 11px 22px; border-radius: 10px;
+        font-weight: 600; font-size: 14px;
+        background: #16a34a; color: #fff;
+        border: 1px solid rgba(22,163,74,0.5);
+        transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+        cursor: pointer; text-decoration: none;
+      }
+      .btn-green:hover {
+        background: #15803d; transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(22,163,74,0.25);
+      }
+
+      /* ── Online dot ───────────────────────────── */
+      .online-dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+        animation: pulse-ring 2s ease-out infinite;
+      }
+      @keyframes pulse-ring {
+        0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+        70%  { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+        100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+      }
+
+      /* ── Logo hover ───────────────────────────── */
+      .logo-twin { transition: color 0.2s ease; }
+      .logo-twin:hover { color: #c4b5fd; }
+
+      /* ── Custom scrollbar ─────────────────────── */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #09090b; }
+      ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 2px; }
+
+      /* ── Divider ──────────────────────────────── */
+      .section-divider { border-top: 1px solid rgba(255,255,255,0.06); }
+
+      /* ── 3D tilt (subtle) ─────────────────────── */
+      .tilt-card { transition: transform 0.3s ease; }
+      .tilt-card:hover { transform: perspective(1200px) rotateX(1.5deg) rotateY(-1.5deg) translateZ(6px); }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
